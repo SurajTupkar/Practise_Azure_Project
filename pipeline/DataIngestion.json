@@ -71,7 +71,10 @@
 			"schema": {
 				"type": "string"
 			},
-			"parameter": {
+			"table": {
+				"type": "string"
+			},
+			"cdc_col": {
 				"type": "string"
 			}
 		},

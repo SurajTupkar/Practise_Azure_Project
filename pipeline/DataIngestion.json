@@ -28,8 +28,56 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "ReadDataFromJson",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "container"
+					},
+					{
+						"name": "folder"
+					},
+					{
+						"name": "file"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "ReadFromJson",
+						"type": "DatasetReference"
+					}
+				}
 			}
 		],
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"parameter": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
